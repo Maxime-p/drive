@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter{% endblock %}
+
+{% block body %}
+    <div class="auth-form">
+        <form method="post">
+
+            <h1 class="">Authentification</h1>
+            <input type="text" value="{{ last_username }}" name="email" placeholder="Identifiant"
+                   autocomplete="username" required autofocus>
+            <input type="password" name="password" placeholder="Mot de passe"
+                   autocomplete="current-password" required>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" name="_remember_me"> Se souvenir de moi
+                </label>
+            </div>
+
+            <button type="submit">
+                Se connecter
+            </button>
+            {% if error %}
+                <div class="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

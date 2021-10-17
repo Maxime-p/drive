@@ -1,0 +1,53 @@
+/*
+    BASE
+ */
+
+body{
+    font-family: sans-serif;
+    margin: 0;
+}
+
+main{
+    width: 1200px;
+    margin: 25px auto auto;
+}
+
+a{
+    color: unset;
+    text-decoration: none;
+}
+
+p{
+    margin: 0;
+}
+
+button{
+    &.styledButton{
+        padding: 8px 12px;
+    }
+}
+
+/*
+    CLASS
+ */
+
+.flex{
+    display: flex;
+}
+
+.flex-1{
+    flex: 1;
+}
+
+.sb{
+    justify-content: space-between;
+}
+
+.sa{
+    justify-content: space-around;
+}
+
+.j-center{
+    justify-content: center;
+}
+

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cool Drive{% endblock %}
+
+{% block body %}
+    <div class="item-list">
+        {% for folder in folders %}
+            <a class="item folder" href="{{ path('show_folder', {'id': folder.id}) }}">
+                <img src="{{ asset('build/img/folder.png') }}" alt="">
+                <p>{{ folder.name }}</p>
+            </a>
+        {% endfor %}
+        {% for document in documents %}
+            <a class="item" href="{{ path('file_viewer', {'id': document.id}) }}">
+                <p>{{ document.name }}</p>
+            </a>
+        {% endfor %}
+    </div>
+    {% include 'drive/_modal.html.twig' %}
+{% endblock %}

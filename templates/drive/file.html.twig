@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ document.name }}{% endblock %}
+
+{% block body %}
+    {% if document.extension|upper == 'PDF' %}
+        <iframe src="{{ asset('uploads/files/' ~ document.name) }}"/>
+    {% elseif document.extension|upper == 'CSV' %}
+
+    {% elseif document.extension|upper == 'HTML' %}
+
+    {% elseif document.extension|upper == 'JPG' %}
+        <img src="{{ asset('uploads/files/' ~ document.name) }}">
+    {% elseif document.extension|upper == 'PNG' %}
+        <img src="{{ asset('uploads/files/' ~ document.name) }}">
+    {% elseif document.extension|upper == 'MP3' %}
+        <audio controls>
+            <source src="{{ asset('uploads/files/' ~ document.name) }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    {% endif %}
+    <a href="{{ asset('uploads/files/' ~ document.name) }}" download="{{ document.name }}">DOWNLOAD</a>
+{% endblock %}

@@ -1,0 +1,38 @@
+<button class="material-icons upload modal-open">cloud_upload</button>
+<div class="modal">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <button class="modal-close">&times;</button>
+            <h2>Mettre en ligne des fichiers</h2>
+        </div>
+        <div class="modal-body">
+            <div class="flex sa">
+                <div class="flex-1">
+                    {{ form_start(uploadForm, {'action': path('drive_upload'), 'method': 'POST'}) }}
+                        {{ form_row(uploadForm.folder) }}
+                        <div id="files-upload"
+                             data-prototype="{{ form_widget(uploadForm.files.vars.prototype)|e }}"
+                             data-widget-counter="{{ uploadForm.files|length }}">
+
+                            {{ form_label(uploadForm.files) }}
+                            <div class="entry">
+                                {{ form_widget(uploadForm.files) }}
+                            </div>
+                        </div>
+                    {{ form_end(uploadForm) }}
+                    <button id="add-item" class="styledButton">Ajouter un autre fichier</button>
+                </div>
+                <div class="vertical-line"></div>
+                <div class="flex-1">
+                    {{ form(folderForm, {'action': path('folder_create'), 'method': 'POST'}) }}
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="submit" form="upload_file" class="styledButton">Importer les fichiers</button>
+        </div>
+
+    </div>
+</div>
